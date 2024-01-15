@@ -1,0 +1,31 @@
+@use '../../scss/variables/color';
+@use '../../scss/variables/fonts';
+@use '../../scss/mixins/mixins';
+
+.Aside {
+	@include mixins.text(color.$primary-text-color);
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 30px;
+
+	h1 {
+		@include mixins.text(color.$primary-text-color);
+		font-weight: 600;
+	}
+
+	.rangeContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.skillsContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 11px;
+	}
+
+    @include mixins.mquery(mobile){
+        display: none;
+    }
+}

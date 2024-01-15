@@ -1,0 +1,131 @@
+@use '../../scss/mixins/mixins';
+@use '../../scss/variables/color';
+
+header {
+	background: #fff;
+
+	@include mixins.mquery(mobile) {
+		position: sticky;
+		top: 0;
+		z-index: 2;
+		background: color.$secondary-text-color;
+		box-shadow: 0 0 10px -5px;
+	}
+}
+
+.Header {
+	display: flex;
+	justify-content: space-between;
+	padding: 48px 0 74px;
+	align-items: center;
+
+	&-left {
+		display: flex;
+		align-items: center;
+		gap: 61px;
+	}
+
+	@include mixins.mquery(mobile) {
+		padding: 33px 0;
+		margin-bottom: 23px;
+
+		&-left {
+			gap: 18px;
+		}
+	}
+}
+
+.logo {
+	width: 223px;
+
+	@include mixins.mquery(mobile) {
+		width: 131px;
+	}
+}
+
+.navigation {
+	ul {
+		display: flex;
+		gap: 71px;
+	}
+
+	a {
+		@include mixins.text(color.$primary-text-color);
+
+		&.active {
+			color: color.$primary-color;
+		}
+
+		&:hover {
+			color: color.$primary-color;
+		}
+	}
+
+	@include mixins.mquery(mobile) {
+		position: fixed;
+		background: color.$secondary-text-color;
+		bottom: 0;
+		top: 0;
+		right: -200px;
+		width: 200px;
+		z-index: 3;
+		transition: 0.5s;
+
+		&.active {
+			right: 0;
+			box-shadow: 0px 0 10px -5px;
+		}
+
+		ul {
+			flex-direction: column;
+			gap: 20px;
+			margin-top: 100px;
+			padding-left: 30px;
+		}
+
+		a {
+			color: color.$primary-text-color;
+		}
+	}
+}
+
+.actionButtons {
+	display: flex;
+	align-items: center;
+	gap: 21px;
+}
+
+.headerDropdown {
+	@include mixins.text(color.$primary-text-color);
+	button {
+		@include mixins.text(color.$primary-text-color);
+	}
+
+	@include mixins.mquery(mobile) {
+		display: none;
+	}
+}
+
+.searchBtn {
+	width: 31px;
+
+	@include mixins.mquery(mobile) {
+		display: none;
+	}
+}
+
+.accountBtn {
+	width: 51px;
+	display: block;
+	@include mixins.mquery(mobile) {
+		width: 33px;
+	}
+}
+
+.menuBtn {
+	display: none;
+
+	@include mixins.mquery(mobile) {
+		display: block;
+	}
+}

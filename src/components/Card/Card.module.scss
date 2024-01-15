@@ -1,0 +1,132 @@
+@use '../../scss/variables/fonts';
+@use '../../scss/variables/color';
+@use '../../scss/mixins/mixins';
+
+.Card {
+	width: 100%;
+	max-width: 400px;
+	background: color.$primary-color;
+	border-radius: 30px;
+	position: relative;
+
+	&-title {
+		@include mixins.title(
+			color.$secondary-text-color,
+			fonts.$l-font-size,
+			fonts.$l-font-size-mobile
+		);
+		padding: 24px 22px 0;
+		position: relative;
+		z-index: 1;
+
+		span {
+			@extend .Card-title;
+			color: color.$yellow;
+			padding: 0;
+			display: block;
+		}
+	}
+
+	&-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+
+		a {
+			@include mixins.text(color.$secondary-text-color);
+			display: flex;
+			align-items: center;
+			margin-right: 25px;
+			margin-bottom: 27px;
+			gap: 5px;
+
+			img {
+				width: 17px;
+			}
+		}
+	}
+
+	&-img {
+		width: 213px;
+		display: block;
+		position: relative;
+		z-index: 1;
+		@include mixins.mquery(mobile) {
+			width: 187px;
+		}
+	}
+}
+
+.background-AZ {
+	position: absolute;
+	top: 30px;
+	right: 13px;
+	z-index: 0;
+	width: 234px;
+
+	@include mixins.mquery(mobile) {
+		width: 183px;
+	}
+}
+
+.background-AE{
+	@extend .background-AZ;
+	width: 157px;
+	top: 83px;
+
+	@include mixins.mquery(mobile) {
+		width: 133px;
+	}
+}
+
+.instructorName {
+	position: absolute;
+	left: 123px;
+	top: 101px;
+	width: 184px;
+	z-index: 1;
+
+	@include mixins.mquery(mobile) {
+		width: 171px;
+	}
+}
+
+.priceContainer {
+	position: absolute;
+	right: 25px;
+	bottom: 85px;
+	z-index: 1;
+
+	.discountPriceContainer {
+		display: flex;
+		gap: 9px;
+		align-items: flex-end;
+
+		.priceWithDiscount {
+			@include mixins.priceText(40px, 36px);
+		}
+
+		.discount {
+			border-radius: 50px;
+			padding: 3px 10px;
+			background: color.$pink;
+			color: color.$secondary-text-color;
+			font-size: 10px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: 120%;
+			letter-spacing: 0.1px;
+
+			@include mixins.mquery(mobile) {
+				font-size: 8px;
+			}
+		}
+	}
+
+	.price {
+		@include mixins.priceText(20px, 18px);
+		text-decoration: line-through;
+		text-decoration-color: color.$pink;
+		margin-left: 80px;
+	}
+}

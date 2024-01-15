@@ -1,0 +1,40 @@
+@use '../../../scss/mixins/mixins';
+@use '../../../scss/variables/color';
+@use '../../../scss/variables/fonts';
+
+.Checkbox {
+	display: flex;
+    align-items: center;
+	gap: 12px;
+	@include mixins.text(color.$primary-text-color);
+	input {
+		display: none;
+
+		&:checked ~ span {
+			background: color.$primary-color;
+		}
+	}
+
+	span {
+		display: block;
+		border-radius: 2px;
+		width: 18px;
+		height: 18px;
+		border: 1px solid color.$primary-color;
+		position: relative;
+
+		&::before {
+			content: '✔';
+			color: color.$secondary-text-color;
+			font-size: 12px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 18px;
+			height: 18px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
+}

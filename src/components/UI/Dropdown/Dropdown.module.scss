@@ -1,0 +1,22 @@
+.dropdownItems {
+	position: absolute;
+	li {
+		cursor: pointer;
+	}
+}
+
+.arrow {
+	width: 15px;
+	height: 7.5px;
+	transition: 0.3s;
+}
+
+.arrow.active {
+	transform: rotate(180deg);
+}
+
+.top{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

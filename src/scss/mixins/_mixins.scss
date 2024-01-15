@@ -1,0 +1,57 @@
+@use 'sass:map';
+@use '../variables/fonts';
+
+$breakpoints: (
+	mobile: 435px,
+	desktop: 1400px,
+);
+
+@mixin mquery($key) {
+	$size: map-get(
+		$map: $breakpoints,
+		$key: $key,
+	);
+
+	@media (width < $size) {
+		@content;
+	}
+}
+
+@mixin title($color, $fontSize, $mobileFontSize) {
+	color: $color;
+	font-size: $fontSize;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 120%;
+	letter-spacing: 0.48px;
+
+	@include mquery(mobile) {
+		font-size: $mobileFontSize;
+	}
+}
+
+@mixin text($color) {
+	color: $color;
+	font-size: fonts.$m-font-size;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 120%;
+	letter-spacing: 0.18px;
+
+	@include mquery(mobile) {
+		font-size: fonts.$m-font-size-mobile;
+	}
+}
+
+@mixin priceText($fontSize, $mobileFontSize) {
+	color: #fff;
+	font-size: $fontSize;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 120%;
+	letter-spacing: 0.4px;
+
+	@include mquery(mobile) {
+		font-size: $mobileFontSize;
+	}
+}

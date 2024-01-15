@@ -1,0 +1,42 @@
+@use '../../scss/variables/color';
+@use '../../scss/variables/fonts';
+@use '../../scss/mixins/mixins';
+
+footer {
+	background: color.$primary-color;
+	padding: 55px 0 44px;
+    margin-top: 140px;
+	@include mixins.text(color.$secondary-text-color);
+
+    @include mixins.mquery(mobile){
+        padding: 18px 0 31px;
+        margin-top: 60px;
+    }
+}
+
+.policy {
+	display: flex;
+	justify-content: space-between;
+    align-items: center;
+    margin-bottom: 52px;
+    .text{
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+    }
+    .logo{
+        width: 223px;
+    }
+
+    @include mixins.mquery(mobile){
+        gap: 83px;
+        margin-bottom: 28px;
+        .logo{
+            width: 125px;
+        }
+    }
+}
+
+.copyrights{
+    text-align: center;
+}

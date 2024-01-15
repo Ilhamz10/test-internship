@@ -1,0 +1,25 @@
+@use '../../../scss/mixins/mixins';
+@use '../../../scss/variables/color';
+@use '../../../scss/variables/fonts';
+
+.Radio {
+	display: flex;
+    align-items: center;
+	gap: 12px;
+	@include mixins.text(color.$primary-text-color);
+	input {
+		display: none;
+
+		&:checked ~ span {
+			background: color.$primary-color;
+		}
+	}
+
+	span {
+		display: block;
+		border-radius: 14px;
+		width: 14px;
+		height: 14px;
+		border: 1px solid color.$primary-color;
+	}
+}
